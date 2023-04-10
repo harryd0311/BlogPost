@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <div class="centerstage">
+        {% for post in post_list %}
+            <div class="post">
+                <h1><a href="{% url 'post_detail' pk=post.pk %}"> {{post.title}} </a></h1>
+            </div>
+            <div class="date">
+                <p>Published on: {{post.published|date:"D M Y"}} </p>
+            </div>
+            <a href="{% url 'post_detail' pk=post.pk %}"> Comments: {{post.approve_comments.count}} </a>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>it works!</h1>
+</body>
+</html> -->
